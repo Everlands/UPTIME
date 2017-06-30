@@ -7,6 +7,7 @@ import colorama
 from colorama import init, Fore, Back, Style
 import os, random, string, time
 import RPi.GPIO as GPIO
+import yaml
 
 GPIO.setmode(GPIO.BOARD) ## Use board pin numbering
 GPIO.setup(7, GPIO.OUT) ## Setup GPIO Pin 7 to OUT
@@ -19,8 +20,11 @@ if os.name == 'nt':
 monitor_status = [ "Paused", "Not Checked", "Up","3","4","5","6","7","Apparently Down","Down"]
 monitor_colour = [ Fore.WHITE + Style.DIM, Fore.WHITE + Style.NORMAL, Fore.GREEN + Style.BRIGHT, '', '', '', '', '', Fore.RED + Style.BRIGHT, Fore.RED + Style.BRIGHT]
 
+#read the config data (YAML data format)
+config = yaml.safe_load(open("/home/developer/Code/uptime.yml"))
+
 # The global API key for Uptime Robot
-ur_api_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+ur_api_key=config['ur_api_key']
 
 
 #=================================================
