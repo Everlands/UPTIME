@@ -21,7 +21,7 @@ monitor_status = [ "Paused", "Not Checked", "Up","3","4","5","6","7","Apparently
 monitor_colour = [ Fore.WHITE + Style.DIM, Fore.WHITE + Style.NORMAL, Fore.GREEN + Style.BRIGHT, '', '', '', '', '', Fore.RED + Style.BRIGHT, Fore.RED + Style.BRIGHT]
 
 #read the config data (YAML data format)
-config = yaml.safe_load(open("/home/developer/Code/uptime.yml"))
+config = yaml.safe_load(open("uptime.yml"))
 
 # The global API key for Uptime Robot
 ur_api_key=config['ur_api_key']
